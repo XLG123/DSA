@@ -21,7 +21,7 @@ var numDecodings = function(s) {
         let i = 0;
         let increment = 0;
         let count = 0;
-        // while ()
+
     }
 
 };
