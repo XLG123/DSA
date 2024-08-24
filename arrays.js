@@ -23,5 +23,5 @@ var numDecodings = function(s) {
         let count = 0;
 
     }
-    // console.log
+    // console.log()
 };
