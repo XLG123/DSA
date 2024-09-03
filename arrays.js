@@ -75,7 +75,7 @@ const p = console.log.bind(console);
 var duplicateZeros = function(arr) {
     for (let i = 0; i < arr.length; ++i) {
         if (arr[i] === 0) {
-            arr = arr.slice(0, i + 1).concat(arr.slice(i));
+            arr.splice(i, 0, 0);
             arr.pop();
             ++i;
         }
