@@ -1,7 +1,6 @@
 // This file will be used to practice array questions/**
 const p = console.log.bind(console);
-p(1);
-
+// p(1);
 
 // 91
 // ...
@@ -37,9 +36,21 @@ p(1);
  * @return {number}
  */
 var heightChecker = function(heights) {
-    
+    let sortedHeights = heights.slice(0).sort((a, b) => a - b);
+    let differences = 0;
+    for (let i = 0; i < sortedHeights.length; ++i) {
+        if (sortedHeights[i] !== heights[i]) {
+            ++differences;
+        }
+    }
+    return differences;
 };
 
 p(heightChecker([1, 1, 4, 2, 1, 3]));
 p(heightChecker([5, 1, 2, 3, 4]));
 p(heightChecker([1, 2, 3, 4, 5]));
+p(
+    heightChecker([
+        10, 6, 6, 10, 10, 9, 8, 8, 3, 3, 8, 2, 1, 5, 1, 9, 5, 2, 7, 4, 7, 7,
+    ])
+);
