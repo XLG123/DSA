@@ -6,6 +6,7 @@ const p = console.log.bind(console);
 // ...
 
 
+
 // 1051 Height Checker
 // Example 1:
 
@@ -35,22 +36,56 @@ const p = console.log.bind(console);
  * @param {number[]} heights
  * @return {number}
  */
-var heightChecker = function(heights) {
-    let sortedHeights = heights.slice(0).sort((a, b) => a - b);
-    let differences = 0;
-    for (let i = 0; i < sortedHeights.length; ++i) {
-        if (sortedHeights[i] !== heights[i]) {
-            ++differences;
+// var heightChecker = function(heights) {
+//     let sortedHeights = heights.slice(0).sort((a, b) => a - b);
+//     let differences = 0;
+//     for (let i = 0; i < sortedHeights.length; ++i) {
+//         if (sortedHeights[i] !== heights[i]) {
+//             ++differences;
+//         }
+//     }
+//     return differences;
+// };
+
+// p(heightChecker([1, 1, 4, 2, 1, 3]));
+// p(heightChecker([5, 1, 2, 3, 4]));
+// p(heightChecker([1, 2, 3, 4, 5]));
+// p(
+//     heightChecker([
+//         10, 6, 6, 10, 10, 9, 8, 8, 3, 3, 8, 2, 1, 5, 1, 9, 5, 2, 7, 4, 7, 7,
+//     ])
+// );
+
+
+
+// 1089
+// Example 1:
+// Input: arr = [1,0,2,3,0,4,5,0]
+// Output: [1,0,0,2,3,0,0,4]
+// Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+
+// Example 2:
+// Input: arr = [1,2,3]
+// Output: [1,2,3]
+// Explanation: After calling your function, the input array is modified to: [1,2,3]
+/**
+ * @param {number[]} arr
+ * @return {void} Do not return anything, modify arr in-place instead.
+ */
+var duplicateZeros = function(arr) {
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i] === 0) {
+            arr = arr.slice(0, i + 1).concat(arr.slice(i));
+            arr.pop();
+            ++i;
         }
     }
-    return differences;
 };
 
-p(heightChecker([1, 1, 4, 2, 1, 3]));
-p(heightChecker([5, 1, 2, 3, 4]));
-p(heightChecker([1, 2, 3, 4, 5]));
-p(
-    heightChecker([
-        10, 6, 6, 10, 10, 9, 8, 8, 3, 3, 8, 2, 1, 5, 1, 9, 5, 2, 7, 4, 7, 7,
-    ])
-);
+let arr = [1, 0, 2, 3, 0, 4, 5, 0];
+duplicateZeros(arr);
+p(arr);
+
+arr = [1, 2, 3];
+duplicateZeros(arr);
+p(arr);
