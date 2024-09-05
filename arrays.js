@@ -106,20 +106,72 @@ const p = console.log.bind(console);
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersection = function(nums1, nums2) {
-    let result = [];
-    for (const num of nums1) {
-        if (nums2.includes(num) && !result.includes(num)) {
-            result.push(num);
+// var intersection = function(nums1, nums2) {
+//     let result = [];
+//     for (const num of nums1) {
+//         if (nums2.includes(num) && !result.includes(num)) {
+//             result.push(num);
+//         }
+//     }
+//     return result;
+// };
+
+// let nums1 = [1, 2, 2, 1];
+// let nums2 = [2, 2];
+// p(intersection(nums1, nums2));
+
+// nums1 = [4, 9, 5];
+// nums2 = [9, 4, 9, 8, 4];
+// p(intersection(nums1, nums2));
+
+
+
+// 350
+// Example 1:
+// Input: nums1 = [1,2,2,1], nums2 = [2,2]
+// Output: [2,2]
+
+// Example 2:
+// Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+// Output: [4,9]
+// Explanation: [9,4] is also accepted.
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+const intersectHelper = (arr1, arr2) => {
+    let output = [];
+    for (const el of arr1) {
+        if (arr2.includes(el)) {
+            output.push(el);
         }
+    }
+    return output;
+}
+
+var intersect = function(nums1, nums2) {
+    let result = [];
+    if (nums1.length <= nums2.length) {
+        result = intersectHelper(nums1, nums2);
+    } else if (nums1.length > nums2.length) {
+        result = intersectHelper(nums2, nums1);
     }
     return result;
 };
 
 let nums1 = [1, 2, 2, 1];
 let nums2 = [2, 2];
-p(intersection(nums1, nums2));
+p(intersect(nums1, nums2));
 
 nums1 = [4, 9, 5];
 nums2 = [9, 4, 9, 8, 4];
-p(intersection(nums1, nums2));
+p(intersect(nums1, nums2));
+
+nums1 = [1, 2, 2, 1];
+nums2 = [2];
+p(intersect(nums1, nums2));
+
+nums1 = [1, 2];
+nums2 = [1, 1];
+p(intersect(nums1, nums2));
