@@ -72,20 +72,54 @@ const p = console.log.bind(console);
  * @param {number[]} arr
  * @return {void} Do not return anything, modify arr in-place instead.
  */
-var duplicateZeros = function(arr) {
-    for (let i = 0; i < arr.length; ++i) {
-        if (arr[i] === 0) {
-            arr.splice(i, 0, 0);
-            arr.pop();
-            ++i;
+// var duplicateZeros = function(arr) {
+//     for (let i = 0; i < arr.length; ++i) {
+//         if (arr[i] === 0) {
+//             arr.splice(i, 0, 0);
+//             arr.pop();
+//             ++i;
+//         }
+//     }
+// };
+
+// let arr = [1, 0, 2, 3, 0, 4, 5, 0];
+// duplicateZeros(arr);
+// p(arr);
+
+// arr = [1, 2, 3];
+// duplicateZeros(arr);
+// p(arr);
+
+
+
+// 349
+// Example 1:
+// Input: nums1 = [1,2,2,1], nums2 = [2,2]
+// Output: [2]
+
+// Example 2:
+// Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+// Output: [9,4]
+// Explanation: [4,9] is also accepted.
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    let result = [];
+    for (const num of nums1) {
+        if (nums2.includes(num) && !result.includes(num)) {
+            result.push(num);
         }
     }
+    return result;
 };
 
-let arr = [1, 0, 2, 3, 0, 4, 5, 0];
-duplicateZeros(arr);
-p(arr);
+let nums1 = [1, 2, 2, 1];
+let nums2 = [2, 2];
+p(intersection(nums1, nums2));
 
-arr = [1, 2, 3];
-duplicateZeros(arr);
-p(arr);
+nums1 = [4, 9, 5];
+nums2 = [9, 4, 9, 8, 4];
+p(intersection(nums1, nums2));
