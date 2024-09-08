@@ -140,42 +140,44 @@ const p = console.log.bind(console);
  * @param {number[]} nums2
  * @return {number[]}
  */
-const intersectHelper = (arr1, arr2) => {
-    let output = [];
-    for (const el of arr1) {
-        if (arr2.includes(el)) {
-            output.push(el);
+var intersect = function(nums1, nums2) {
+    let map = {};
+    for (const num of nums1) {
+        if (nums2.includes(num)) {
+            if (!map[num]) {
+                map[num] = 1;
+            } else {
+                ++map[num];
+            }
         }
     }
-    return output;
-}
-
-var intersect = function(nums1, nums2) {
+    
     let result = [];
-    if (nums1.length <= nums2.length) {
-        result = intersectHelper(nums1, nums2);
-    } else if (nums1.length > nums2.length) {
-        result = intersectHelper(nums2, nums1);
-    }
+    Object.entries(map).forEach(([key, val]) => {
+        for (let i = 0; i < val; ++i) {
+            result.push(parseInt(key));
+        }
+    });
+
     return result;
 };
 
 let nums1 = [1, 2, 2, 1];
 let nums2 = [2, 2];
-p(intersect(nums1, nums2));
+p(intersect(nums1, nums2)); // Output: [2, 2]
 
 nums1 = [4, 9, 5];
 nums2 = [9, 4, 9, 8, 4];
-p(intersect(nums1, nums2));
+p(intersect(nums1, nums2)); // Output: [4, 9]
 
 nums1 = [1, 2, 2, 1];
 nums2 = [2];
-p(intersect(nums1, nums2));
+p(intersect(nums1, nums2)); // Output: [2]
 
 nums1 = [1, 2];
 nums2 = [1, 1];
-p(intersect(nums1, nums2));
+p(intersect(nums1, nums2)); // Output: [1]
 
 nums1 = [3, 1, 2];
 nums2 = [1, 1];
-p(intersect(nums1, nums2));
+p(intersect(nums1, nums2)); // Output: [1]
