@@ -146,6 +146,9 @@ var intersect = function(nums1, nums2) {
         if (nums2.includes(num)) {
             if (!map[num]) {
                 map[num] = 1;
+                const beforeNum = nums2.slice(0, nums2.indexOf(num));
+                const afterNum = nums2.slice(nums2.indexOf(num)+1, nums2.length);
+                nums2 = beforeNum.concat(afterNum);
             } else {
                 ++map[num];
             }
