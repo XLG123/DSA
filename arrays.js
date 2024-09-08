@@ -175,3 +175,7 @@ p(intersect(nums1, nums2));
 nums1 = [1, 2];
 nums2 = [1, 1];
 p(intersect(nums1, nums2));
+
+nums1 = [3, 1, 2];
+nums2 = [1, 1];
+p(intersect(nums1, nums2));
