@@ -42,28 +42,48 @@ var longestCommonPrefix = function (strs) {
  * @return {string[]}
  */
 var findRepeatedDnaSequences = function(s) {
+    // // Solution 1
+    // let seq = "";
+
+    // let sequenceCount = {};
+
+    // for (let i = 0; i < s.length - 9; ++i) {
+    //     seq += s[i];
+    //     for (let j = i + 1; j < i + 10; ++j) {
+    //         seq += s[j];
+    //     }
+
+    //     if (!sequenceCount[seq]) {
+    //         sequenceCount[seq] = 1;
+    //     } else if (sequenceCount[seq]) {
+    //         sequenceCount[seq] += 1;
+    //     }
+
+    //     seq = "";
+    // }
+
+    // const repeatedSeq = Object.entries(sequenceCount)
+    //     .filter((seq) => seq[1] > 1)
+    //     .map((seq) => seq[0]);
+
+    // return repeatedSeq;
+
+    // Solution 2
+    let allSeq = new Set();
+    let repeatedSeq = [];
+
+    let i = 0;
     let seq = "";
-
-    let sequenceCount = {};
-
-    for (let i = 0; i < s.length - 9; ++i) {
-        seq += s[i];
-        for (let j = i + 1; j < i + 10; ++j) {
-            seq += s[j];
+    while (i < s.length - 9) {
+        seq = s.substring(i, i + 10);
+        if (allSeq.has(seq)) {
+            if (!repeatedSeq.includes(seq)) {
+                repeatedSeq.push(seq);
+            }
+        } else {
+            allSeq.add(seq);
         }
-
-        if (!sequenceCount[seq]) {
-            sequenceCount[seq] = 1;
-        } else if (sequenceCount[seq]) {
-            sequenceCount[seq] += 1;
-        }
-
-        seq = "";
+        ++i;
     }
-
-    const repeatedSeq = Object.entries(sequenceCount)
-                            .filter((seq) => seq[1] > 1)
-                            .map((seq) => seq[0]);
-
     return repeatedSeq;
 }
