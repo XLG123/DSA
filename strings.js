@@ -87,3 +87,37 @@ var findRepeatedDnaSequences = function(s) {
     }
     return repeatedSeq;
 }
+
+
+
+// 434
+// Example 1:
+// Input: s = "Hello, my name is John"
+// Output: 5
+// Explanation: The five segments are ["Hello,", "my", "name", "is", "John"]
+
+// Example 2:
+// Input: s = "Hello"
+// Output: 1
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countSegments = function(s) {
+    if (!s) {
+        return 0;
+    }
+    
+    const segments = s.split(" ");
+
+    let count = 0;
+    for (let i = 0; i < segments.length; ++i) {
+        if (segments[i] !== "") {
+            ++count;
+        }
+    }
+
+    console.log(segments);
+
+    return count;
+};
