@@ -121,3 +121,36 @@ var countSegments = function(s) {
 
     return count;
 };
+
+
+
+// 387
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+    let obj = {};
+    s.split("").forEach((char) => {
+        if (!obj[char]) {
+            obj[char] = 1;
+        } else {
+            obj[char] += 1;
+        }
+    })
+
+    let letter = "";
+    const arr = Object.entries(obj);
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i][1] === 1) {
+            letter = arr[i][0];
+            break;
+        }
+    }
+
+    if (letter) {
+        return s.indexOf(letter);
+    } else {
+        return -1;
+    }
+};
