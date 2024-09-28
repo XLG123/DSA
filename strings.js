@@ -154,3 +154,24 @@ var firstUniqChar = function(s) {
         return -1;
     }
 };
+
+
+
+// 389
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {character}
+ */
+
+const sortStr = (str) => {
+    return str.split("").sort().join("");
+}
+
+var findTheDifference = function(s, t) {
+    const sortedS = sortStr(s);
+    const sortedT = sortStr(t);
+    for (let i = 0; i < sortedT.length; ++i) {
+        if (sortedS[i] !== sortedT[i]) return sortedT[i];
+    }
+};
