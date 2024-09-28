@@ -175,3 +175,21 @@ var findTheDifference = function(s, t) {
         if (sortedS[i] !== sortedT[i]) return sortedT[i];
     }
 };
+
+
+
+// 392
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+    let arr = s.split("");
+    for (let i = 0; i < t.length; ++i) {
+        if (t[i] === arr[0]) {
+            arr.shift();
+        }
+    }
+    return arr.length === 0;
+};
