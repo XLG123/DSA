@@ -184,3 +184,28 @@ p(intersect(nums1, nums2)); // Output: [1]
 nums1 = [3, 1, 2];
 nums2 = [1, 1];
 p(intersect(nums1, nums2)); // Output: [1]
+
+
+
+// 268
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+    const sorted = nums.sort((a, b) => (a-b));
+    const sortedSize = sorted.length;
+    const max = sorted[sortedSize - 1];
+
+    if (sortedSize > max) {
+        return sortedSize;
+    } else if (sortedSize === max && sorted[0] !== 0) {
+        return 0;
+    }
+
+    for (let i = 1; i < sortedSize; ++i) {
+        if (sorted[i] !== i) {
+            return i;
+        }
+    }
+};
