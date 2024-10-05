@@ -41,10 +41,9 @@ end
 # @return {Integer[]}
 def find_disappeared_numbers(nums)
     nums_size = nums.length
-    uniq_sorted_nums = nums.sort.uniq
     disappeared_nums = []
     (1..nums_size).each do |i|
-        disappeared_nums.push(i) unless uniq_sorted_nums.include?(i)
+        disappeared_nums.push(i) unless nums.include?(i)
     end
     disappeared_nums
 end
