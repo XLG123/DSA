@@ -33,3 +33,18 @@ def third_max(nums)
         return unique_reversed[2]
     end
 end
+
+
+
+# 448
+# @param {Integer[]} nums
+# @return {Integer[]}
+def find_disappeared_numbers(nums)
+    nums_size = nums.length
+    uniq_sorted_nums = nums.sort.uniq
+    disappeared_nums = []
+    (1..nums_size).each do |i|
+        disappeared_nums.push(i) unless uniq_sorted_nums.include?(i)
+    end
+    disappeared_nums
+end
