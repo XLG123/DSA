@@ -18,3 +18,18 @@ def is_ugly(n)
         end
     end
 end
+
+
+
+# 414
+# @param {Integer[]} nums
+# @return {Integer}
+def third_max(nums)
+    reversed_sorted_nums = nums.sort { |a, b| b <=> a }
+    unique_reversed = reversed_sorted_nums.uniq
+    if unique_reversed.length < 3
+        return unique_reversed[0]
+    else
+        return unique_reversed[2]
+    end
+end
