@@ -40,16 +40,8 @@ end
 # @param {Integer[]} nums
 # @return {Integer[]}
 def find_disappeared_numbers(nums)
-    sorted_nums = nums.sort.uniq
-    disappeared_nums = []
-    sorted_nums.each_with_index do |num, idx|
-        temp = idx
-        while temp+1 < sorted_nums[temp]
-            disappeared_nums.push(temp+1)
-            temp += 1
-        end
-    end
-    disappeared_nums
+    uniq_sorted_nums = nums.sort.uniq
+    (1..nums.length).to_a - uniq_sorted_nums
 end
 
-find_disappeared_numbers([1, 2, 3, 4, 7, 8])
+p find_disappeared_numbers([1, 2, 3, 4, 7, 8])
