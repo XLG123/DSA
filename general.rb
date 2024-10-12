@@ -78,7 +78,7 @@ end
 # the difference between l and w must be as small as possible
 def construct_rectangle(area)
     dimensions = Hash.new()
-    (1..area).each do |width|
+    (1..Math.sqrt(area)).each do |width|
         if area % width == 0
             length = area / width
             if length < width
