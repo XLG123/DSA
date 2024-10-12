@@ -66,5 +66,14 @@ def find_max_consecutive_ones(nums)
     max_consecutives.max
 end
 
-p find_max_consecutive_ones([1, 1, 0, 1, 1, 1])
-p find_max_consecutive_ones([1, 0, 1, 1, 0, 1])
+# p find_max_consecutive_ones([1, 1, 0, 1, 1, 1])
+# p find_max_consecutive_ones([1, 0, 1, 1, 0, 1])
+
+
+
+# 492
+# @param {Integer} area
+# @return {Integer[]}
+def construct_rectangle(area)
+    
+end
