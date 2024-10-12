@@ -74,6 +74,20 @@ end
 # 492
 # @param {Integer} area
 # @return {Integer[]}
+# return [l, w]
 def construct_rectangle(area)
-    
+    (1..area).each do |width|
+        if area % width == 0
+            length = area / width
+            if length < width
+                return [width, length]
+            else
+                return [length, width]
+            end
+        end
+    end
 end
+
+p construct_rectangle(4)
+p construct_rectangle(37)
+p construct_rectangle(122122)
