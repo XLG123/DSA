@@ -44,4 +44,27 @@ def find_disappeared_numbers(nums)
     (1..nums.length).to_a - uniq_sorted_nums
 end
 
-p find_disappeared_numbers([1, 2, 3, 4, 7, 8])
+# p find_disappeared_numbers([1, 2, 3, 4, 7, 8])
+
+
+
+# 485
+# @param {Integer[]} nums
+# @return {Integer}
+def find_max_consecutive_ones(nums)
+    max_consecutives = []
+    max_consecutive = 0
+    nums.each do |num|
+        if num == 1
+            max_consecutive += 1
+        else
+            max_consecutives.push(max_consecutive)
+            max_consecutive = 0
+        end
+    end
+    max_consecutives.push(max_consecutive)
+    max_consecutives.max
+end
+
+p find_max_consecutive_ones([1, 1, 0, 1, 1, 1])
+p find_max_consecutive_ones([1, 0, 1, 1, 0, 1])
