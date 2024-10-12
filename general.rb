@@ -91,7 +91,27 @@ def construct_rectangle(area)
     dimensions.keys[-1]
 end
 
-p construct_rectangle(4)
-p construct_rectangle(37)
-p construct_rectangle(122122)
-p construct_rectangle(18)
+# p construct_rectangle(4)
+# p construct_rectangle(37)
+# p construct_rectangle(122122)
+# p construct_rectangle(18)
+
+
+
+# 520
+# @param {String} word
+# @return {Boolean}
+def detect_capital_use(word)
+    if word.upcase == word || word.downcase == word
+        return true
+    elsif word[0].upcase + word[1..].downcase == word
+        return true
+    else
+        return false
+    end
+end
+
+p detect_capital_use("USA")  # True
+p detect_capital_use("FlaG") # False
+p detect_capital_use("leetcode")  # True
+p detect_capital_use("Google")    # True
