@@ -136,25 +136,18 @@ end
 def can_place_flowers(flowerbed, n)
     temp = n
     num_of_plots = flowerbed.length
-    first = false
-    last = false
     flowerbed.each_with_index do |plot, idx|
-        if idx == 0
-            first = true
-        elsif idx == num_of_plots - 1
-            last = true
-        end
-
         if plot == 0
-            if first && flowerbed[idx+1] == 0
+            if idx == 0 && flowerbed[idx+1] == 0
                 plot = 1
-                puts "inside"
-            elsif last && flowerbed[idx-1] == 0
+                temp -= 1
+            elsif idx == num_of_plots - 1 && flowerbed[idx-1] == 0
                 plot = 1
+                temp -= 1
+            elsif flowerbed[idx-1] == 0 && flowerbed[idx+1] == 0
+                plot = 1
+                temp -= 1
             end
-            first = false
-            last = false
-            temp -= 1
         end
     end
     return temp == 0
