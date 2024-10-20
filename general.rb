@@ -139,13 +139,13 @@ def can_place_flowers(flowerbed, n)
     flowerbed.each_with_index do |plot, idx|
         if plot == 0
             if idx == 0 && flowerbed[idx+1] == 0
-                plot = 1
+                flowerbed[idx] = 1
                 temp -= 1
             elsif idx == num_of_plots - 1 && flowerbed[idx-1] == 0
-                plot = 1
+                flowerbed[idx] = 1
                 temp -= 1
             elsif flowerbed[idx-1] == 0 && flowerbed[idx+1] == 0
-                plot = 1
+                flowerbed[idx] = 1
                 temp -= 1
             end
         end
