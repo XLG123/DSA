@@ -136,6 +136,7 @@ end
 def can_place_flowers(flowerbed, n)
     temp = n
     num_of_plots = flowerbed.length
+    return true if n == 0
     flowerbed.each_with_index do |plot, idx|
         if plot == 0
             if idx == 0 && flowerbed[idx+1] == 0
