@@ -149,6 +149,10 @@ def can_place_flowers(flowerbed, n)
                 temp -= 1
             end
         end
+
+        if temp == 0
+            return true
+        end
     end
     return temp == 0
 end
