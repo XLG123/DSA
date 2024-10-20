@@ -117,7 +117,7 @@ p detect_capital_use("leetcode")  # True
 p detect_capital_use("Google")    # True
 
 
-
+# 593
 # @param {Integer[]} p1
 # @param {Integer[]} p2
 # @param {Integer[]} p3
