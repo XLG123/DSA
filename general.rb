@@ -115,3 +115,14 @@ p detect_capital_use("USA")  # True
 p detect_capital_use("FlaG") # False
 p detect_capital_use("leetcode")  # True
 p detect_capital_use("Google")    # True
+
+
+
+# @param {Integer[]} p1
+# @param {Integer[]} p2
+# @param {Integer[]} p3
+# @param {Integer[]} p4
+# @return {Boolean}
+def valid_square(p1, p2, p3, p4)
+    
+end
